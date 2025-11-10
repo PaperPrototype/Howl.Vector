@@ -22,11 +22,11 @@ class Float4Class {
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Float4.cs
     @see https://github.com/HeapsIO/heaps/blob/master/h3d/Vector.hx
 **/
-@:build(vector.SwizzleMacro.buildSwizzles4())
+@:build(vector.FloatSwizzles.buildSwizzles4())
 @:forward(x, y, z, w)
 abstract Float4(Float4Class) from Float4Class to Float4Class {
-    public static final Zero:Float4 = new Float4(0, 0, 0, 0);
-    public static final One:Float4 = new Float4(1, 1, 1, 1);
+    public static final Zero :Float4 = new Float4(0, 0, 0, 0);
+    public static final One  :Float4 = new Float4(1, 1, 1, 1);
     public static final UnitX:Float4 = new Float4(1, 0, 0, 0);
     public static final UnitY:Float4 = new Float4(0, 1, 0, 0);
     public static final UnitZ:Float4 = new Float4(0, 0, 1, 0);

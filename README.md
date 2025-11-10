@@ -16,8 +16,8 @@ trace('v3: ${v3.toString()}'); // v3: (1, 2, 3)
 var v4 = new Float4(1, 2, 3, 4);
 trace('v4: ${v4.toString()}'); // v4: (1, 2, 3, 4)
 
-trace('Swizzle v2.xx: ${v2.xx.toString()}');     // Swizzle v2.xx: (1, 1)
-trace('Swizzle v2.yx: ${v2.yx.toString()}');     // Swizzle v2.yx: (2, 1)
-trace('Swizzle v3.zyx: ${v3.zyx.toString()}');   // Swizzle v3.zyx: (3, 2, 1)
-trace('Swizzle v4.wzyx: ${v4.wzyx.toString()}'); // Swizzle v4.wzyx: (4, 3, 2, 1)
+trace('Swizzle v2.xx: ${v2.xx.toString()}');     // (1, 1)
+trace('Swizzle v2.yx: ${v2.yx.toString()}');     // (2, 1)
+trace('Swizzle v3.zyx: ${v3.zyx.toString()}');   // (3, 2, 1)
+trace('Swizzle v4.wzyx: ${v4.wzyx.toString()}'); // (4, 3, 2, 1)
 ```

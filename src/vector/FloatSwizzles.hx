@@ -5,7 +5,7 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 #end
 
-class SwizzleMacro {
+class FloatSwizzles {
     #if macro
     public static macro function buildSwizzles2():Array<Field> {
         var fields = Context.getBuildFields();

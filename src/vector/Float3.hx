@@ -20,11 +20,11 @@ class Float3Class {
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Float3.cs
     @see https://github.com/HeapsIO/heaps/blob/master/h3d/Vector.hx
 **/
-@:build(vector.SwizzleMacro.buildSwizzles3())
+@:build(vector.FloatSwizzles.buildSwizzles3())
 @:forward(x, y, z)
 abstract Float3(Float3Class) from Float3Class to Float3Class {
-    public static final Zero:Float3 = new Float3(0, 0, 0);
-    public static final One:Float3 = new Float3(1, 1, 1);
+    public static final Zero :Float3 = new Float3(0, 0, 0);
+    public static final One  :Float3 = new Float3(1, 1, 1);
     public static final UnitX:Float3 = new Float3(1, 0, 0);
     public static final UnitY:Float3 = new Float3(0, 1, 0);
     public static final UnitZ:Float3 = new Float3(0, 0, 1);

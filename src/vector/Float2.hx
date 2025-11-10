@@ -18,7 +18,7 @@ class Float2Class {
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Float2.cs
     @see https://github.com/HeapsIO/heaps/blob/master/h3d/Vector.hx
 **/
-@:build(vector.SwizzleMacro.buildSwizzles2())
+@:build(vector.FloatSwizzles.buildSwizzles2())
 @:forward(x, y)
 abstract Float2(Float2Class) from Float2Class to Float2Class {
     public static final Zero:Float2 = new Float2(0, 0);
