@@ -5,7 +5,6 @@ import vector.Float4;
 import vector.Float3;
 import drift.UserList.UserList;
 import js.Browser.document;
-import js.html.ButtonElement;
 import vector.Float2;
 
 function main() {
@@ -16,26 +15,19 @@ function main() {
     var app = document.getElementById("app");
     app.appendChild(canvas);
 
-    var v = new Float2(3, 4);
-    var length = Float2.length(v); 
-    trace('Length of vector v: $length'); // Should output 5
-    trace('Float2 vector: ${v.toString()}');
+    var v2 = new Float2(1, 2);
+    trace('v2: ${v2.toString()}'); // v2: (1, 2)
 
-    var v2 = new Float3(1, 2, 2);
-    var length3 = Float3.length(v2);
-    trace('Length of vector v2: $length3'); // Should output 3
-    trace('Float3 vector: ${v2.toString()}');
+    var v3 = new Float3(1, 2, 3);
+    trace('v3: ${v3.toString()}'); // v3: (1, 2, 3)
 
-    var v3 = new Float4(1, 2, 2, 1);
-    var length4 = Float4.length(v3);
-    trace('Length of vector v3: $length4'); // Should output 3
-    trace('Float4 vector: ${v3.toString()}');
+    var v4 = new Float4(1, 2, 3, 4);
+    trace('v4: ${v4.toString()}'); // v4: (1, 2, 3, 4)
 
-    var r1 = v.xx;
-    trace('Swizzle v.xx: ${r1.toString()}');
-
-    var r2 = v.yx;
-    trace('Swizzle v.yx: ${r2.toString()}');
+    trace('Swizzle v2.xx: ${v2.xx.toString()}');    // Swizzle v2.xx: (1, 1)
+    trace('Swizzle v2.yx: ${v2.yx.toString()}');    // Swizzle v2.yx: (2, 1)
+    trace('Swizzle v3.zyx: ${v3.zyx.toString()}');  // Swizzle v3.zyx: (3, 2, 1)
+    trace('Swizzle v4.zyx: ${v4.wzyx.toString()}'); // Swizzle v4.zyx: (4, 3, 2, 1)
 
     var context = canvas.getContext('2d');
     context.fillStyle = "lightblue";

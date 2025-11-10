@@ -7,31 +7,102 @@ import haxe.macro.Expr;
 
 class SwizzleMacro {
     #if macro
-    public static macro function buildSwizzles():Array<Field> {
+    public static macro function buildSwizzles2():Array<Field> {
         var fields = Context.getBuildFields();
-        var components = ["x", "y"];
-        
+
         // Generate 2-component swizzles
-        for (a in components) {
-            for (b in components) {
+        var components2 = ["x", "y"];
+        for (a in components2) {
+            for (b in components2) {
                 addSwizzle2(fields, a, b);
             }
         }
         
         // Generate 3-component swizzles
-        for (a in components) {
-            for (b in components) {
-                for (c in components) {
+        for (a in components2) {
+            for (b in components2) {
+                for (c in components2) {
                     addSwizzle3(fields, a, b, c);
                 }
             }
         }
         
         // Generate 4-component swizzles
-        for (a in components) {
-            for (b in components) {
-                for (c in components) {
-                    for (d in components) {
+        for (a in components2) {
+            for (b in components2) {
+                for (c in components2) {
+                    for (d in components2) {
+                        addSwizzle4(fields, a, b, c, d);
+                    }
+                }
+            }
+        }
+        
+        return fields;
+    }
+
+    public static macro function buildSwizzles3():Array<Field> {
+        var fields = Context.getBuildFields();
+
+        // Generate 2-component swizzles
+        var components2 = ["x", "y"];
+        for (a in components2) {
+            for (b in components2) {
+                addSwizzle2(fields, a, b);
+            }
+        }
+        
+        // Generate 3-component swizzles
+        var components3 = ["x", "y", "z"];
+        for (a in components3) {
+            for (b in components3) {
+                for (c in components3) {
+                    addSwizzle3(fields, a, b, c);
+                }
+            }
+        }
+        
+        // Generate 4-component swizzles
+        for (a in components3) {
+            for (b in components3) {
+                for (c in components3) {
+                    for (d in components3) {
+                        addSwizzle4(fields, a, b, c, d);
+                    }
+                }
+            }
+        }
+        
+        return fields;
+    }
+
+    public static macro function buildSwizzles4():Array<Field> {
+        var fields = Context.getBuildFields();
+
+        // Generate 2-component swizzles
+        var components2 = ["x", "y"];
+        for (a in components2) {
+            for (b in components2) {
+                addSwizzle2(fields, a, b);
+            }
+        }
+        
+        // Generate 3-component swizzles
+        var components3 = ["x", "y", "z"];
+        for (a in components3) {
+            for (b in components3) {
+                for (c in components3) {
+                    addSwizzle3(fields, a, b, c);
+                }
+            }
+        }
+        
+        // Generate 4-component swizzles
+        var components4 = ["x", "y", "z", "w"];
+        for (a in components4) {
+            for (b in components4) {
+                for (c in components4) {
+                    for (d in components4) {
                         addSwizzle4(fields, a, b, c, d);
                     }
                 }
