@@ -22,6 +22,7 @@ class Int4Class {
 
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Int4.cs
 **/
+@:build(vector.IntSwizzles.buildSwizzles4())
 @:forward(x, y, z, w)
 abstract Int4(Int4Class) from Int4Class to Int4Class {
     public static final Zero :Int4 = new Int4(0, 0, 0, 0);

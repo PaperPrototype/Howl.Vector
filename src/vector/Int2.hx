@@ -18,6 +18,7 @@ class Int2Class {
 
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Int2.cs
 **/
+@:build(vector.IntSwizzles.buildSwizzles2())
 @:forward(x, y)
 abstract Int2(Int2Class) from Int2Class to Int2Class {
     public static final Zero :Int2 = new Int2(0, 0);

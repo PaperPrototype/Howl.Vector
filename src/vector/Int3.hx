@@ -20,6 +20,7 @@ class Int3Class {
 
     @see https://github.com/ProwlEngine/Prowl.Vector/blob/main/Vector/Vectors/Int3.cs
 **/
+@:build(vector.IntSwizzles.buildSwizzles3())
 @:forward(x, y, z)
 abstract Int3(Int3Class) from Int3Class to Int3Class {
     public static final Zero :Int3 = new Int3(0, 0, 0);

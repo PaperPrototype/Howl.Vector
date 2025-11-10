@@ -120,7 +120,7 @@ class IntSwizzles {
         fields.push({
             name: name,
             access: [APublic],
-            kind: FProp("get", canSet ? "set" : "never", macro :Float2),
+            kind: FProp("get", canSet ? "set" : "never", macro :Int2),
             pos: Context.currentPos()
         });
         
@@ -133,8 +133,8 @@ class IntSwizzles {
             access: [AInline],
             kind: FFun({
                 args: [],
-                ret: macro :Float2,
-                expr: macro return new Float2($aIdent, $bIdent)
+                ret: macro :Int2,
+                expr: macro return new Int2($aIdent, $bIdent)
             }),
             pos: Context.currentPos()
         });
@@ -148,8 +148,8 @@ class IntSwizzles {
                 name: "set_" + name,
                 access: [AInline],
                 kind: FFun({
-                    args: [{name: "v", type: macro :Float2}],
-                    ret: macro :Float2,
+                    args: [{name: "v", type: macro :Int2}],
+                    ret: macro :Int2,
                     expr: macro {
                         $aSet;
                         $bSet;
@@ -169,7 +169,7 @@ class IntSwizzles {
         fields.push({
             name: name,
             access: [APublic],
-            kind: FProp("get", canSet ? "set" : "never", macro :Float3),
+            kind: FProp("get", canSet ? "set" : "never", macro :Int3),
             pos: Context.currentPos()
         });
         
@@ -183,8 +183,8 @@ class IntSwizzles {
             access: [AInline],
             kind: FFun({
                 args: [],
-                ret: macro :Float3,
-                expr: macro return new Float3($aIdent, $bIdent, $cIdent)
+                ret: macro :Int3,
+                expr: macro return new Int3($aIdent, $bIdent, $cIdent)
             }),
             pos: Context.currentPos()
         });
@@ -199,8 +199,8 @@ class IntSwizzles {
                 name: "set_" + name,
                 access: [AInline],
                 kind: FFun({
-                    args: [{name: "v", type: macro :Float3}],
-                    ret: macro :Float3,
+                    args: [{name: "v", type: macro :Int3}],
+                    ret: macro :Int3,
                     expr: macro {
                         $aSet;
                         $bSet;
@@ -221,7 +221,7 @@ class IntSwizzles {
         fields.push({
             name: name,
             access: [APublic],
-            kind: FProp("get", canSet ? "set" : "never", macro :Float4),
+            kind: FProp("get", canSet ? "set" : "never", macro :Int4),
             pos: Context.currentPos()
         });
         
@@ -236,8 +236,8 @@ class IntSwizzles {
             access: [AInline],
             kind: FFun({
                 args: [],
-                ret: macro :Float4,
-                expr: macro return new Float4($aIdent, $bIdent, $cIdent, $dIdent)
+                ret: macro :Int4,
+                expr: macro return new Int4($aIdent, $bIdent, $cIdent, $dIdent)
             }),
             pos: Context.currentPos()
         });
@@ -253,8 +253,8 @@ class IntSwizzles {
                 name: "set_" + name,
                 access: [AInline],
                 kind: FFun({
-                    args: [{name: "v", type: macro :Float4}],
-                    ret: macro :Float4,
+                    args: [{name: "v", type: macro :Int4}],
+                    ret: macro :Int4,
                     expr: macro {
                         $aSet;
                         $bSet;
