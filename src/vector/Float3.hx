@@ -56,6 +56,7 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
     public inline function new(x:Float, y:Float, z:Float) {
         this = new Float3Class(x, y, z);
     }
+
     // @:op(a()) inline function callNoArgs(): Float3 {
     //     return new Float3(0, 0, 0);
     // }

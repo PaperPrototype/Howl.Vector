@@ -68,6 +68,9 @@ abstract Float4(Float4Class) from Float4Class to Float4Class {
     //     return new Float4(scalar, scalar, scalar, scalar);
     // }
 
+    /// <summary>Implicitly converts a Float4 vector to a Quaternion.</summary>
+    public static function toQuaternion(v: Float4): Quaternion { return new Quaternion(v.x, v.y, v.z, v.w); }
+
     /// OPERATOR OVERLOADING ///
 
     // vector to vector

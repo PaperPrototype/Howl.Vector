@@ -36,6 +36,10 @@ class Maths {
     public static inline function lerp(a: Float, b: Float, t: Float): Float {
         return a + (b - a) * saturate(t);
     }
+    /**Returns the reciprocal square root (1/sqrt) of float x.**/
+    public static inline function rsqrt(x: Float): Float {
+        return 1.0 / Math.sqrt(x);
+    }
     /// ENDREGION Basic Math Functions
 
     // public static inline function clamp(x:Float, min:Float, max:Float):Float {
