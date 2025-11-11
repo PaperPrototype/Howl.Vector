@@ -105,6 +105,12 @@ abstract Int3(Int3Class) from Int3Class to Int3Class {
         return this.x == other.x && this.y == other.y && this.z == other.z;
     }
 
+    /**Hashcode for dictionaries and sets**/
+    public function getHashCode(): Int {
+        // Combine the hash codes
+        return this.x ^ (this.y << 2) ^ (this.z >> 2);
+    }
+
     /** Returns the vector as an array [x, y] **/
     public inline function toArray():Array<Int> {
         return [this.x, this.y, this.z];

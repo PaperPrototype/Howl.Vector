@@ -101,6 +101,12 @@ abstract Int2(Int2Class) from Int2Class to Int2Class {
         return this.x == other.x && this.y == other.y;
     }
 
+    /**Hashcode for dictionaries and sets**/
+    public function getHashCode(): Int {
+        // Combine the hash codes
+        return this.x ^ (this.y << 2);
+    }
+
     /** Returns the vector as an array [x, y] **/
     public inline function toArray():Array<Int> {
         return [this.x, this.y];

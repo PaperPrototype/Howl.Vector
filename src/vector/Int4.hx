@@ -110,6 +110,12 @@ abstract Int4(Int4Class) from Int4Class to Int4Class {
         return this.x == other.x && this.y == other.y && this.z == other.z && this.w == other.w;
     }
 
+    /**Hashcode for dictionaries and sets**/
+    public function getHashCode(): Int {
+        // Combine the hash codes
+        return this.x ^ (this.y << 2) ^ (this.z >> 2) ^ (this.w >> 1);
+    }
+
     /** Returns the vector as an array [x, y] **/
     public inline function toArray():Array<Int> {
         return [this.x, this.y, this.z, this.w];

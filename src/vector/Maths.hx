@@ -2,9 +2,27 @@ package vector;
 
 class Maths {
 
-    // *** CONSTANTS ***
-    public static final Epsilon:Float = 1e-10; // 0.0000000001
+    /// REGION Constants
+    /**A small value used for floating point comparisons.**/
+    public static final EPSILON:Float = 1e-10; // 0.0000000001
+    /// ENDREGION Constants
 
+    /// REGION Degrees/Radians Conversion
+    /**π / 180 (degrees to radians multiplier)**/
+    public static final DEG2RAD: Float = Math.PI / 180.0;
+
+    /**180 / π (radians to degrees multiplier)**/
+    public static final RAD2DEG: Float = 180.0 / Math.PI;
+    /// ENDREGION Degrees/Radians Conversion
+
+    /// REGION Basic Math Functions
+    /**
+        Clamps a value between min and max.
+        @param x The value to clamp.
+        @param min The minimum value.
+        @param max The maximum value.
+        @returns The clamped value.
+    **/
     public static inline function clamp(x:Float, min:Float, max:Float):Float {
         return Math.max(min, Math.min(max, x));
     }
@@ -18,6 +36,7 @@ class Maths {
     public static inline function lerp(a: Float, b: Float, t: Float): Float {
         return a + (b - a) * saturate(t);
     }
+    /// ENDREGION Basic Math Functions
 
     // public static inline function clamp(x:Float, min:Float, max:Float):Float {
     //     return Math.max(min, Math.min(max, x));

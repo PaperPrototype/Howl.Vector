@@ -21,8 +21,8 @@ class Float2Class {
 @:build(vector.FloatSwizzles.buildSwizzles2())
 @:forward(x, y)
 abstract Float2(Float2Class) from Float2Class to Float2Class {
-    public static final Zero:Float2 = new Float2(0, 0);
-    public static final One:Float2 = new Float2(1, 1);
+    public static final Zero :Float2 = new Float2(0, 0);
+    public static final One  :Float2 = new Float2(1, 1);
     public static final UnitX:Float2 = new Float2(1, 0);
     public static final UnitY:Float2 = new Float2(0, 1);
 
@@ -47,19 +47,18 @@ abstract Float2(Float2Class) from Float2Class to Float2Class {
         return value;
     }
 
+    /// CONSTRUCTORS ///
     public inline function new(x:Float, y:Float) {
         this = new Float2Class(x, y);
     }
+    // @:op(a()) inline function callNoArgs(): Float2 {
+    //     return new Float2(0, 0);
+    // }
+    // @:op(a()) inline function callOneArg(scalar: Float): Float2 {
+    //     return new Float2(scalar, scalar);
+    // }
 
-    // multiple constructors
-    @:op(a()) inline function callNoArgs(): Float2 {
-        return new Float2(0, 0);
-    }
-
-    // multiple constructors
-    @:op(a()) inline function callOneArg(scalar: Float): Float2 {
-        return new Float2(scalar, scalar);
-    }
+    /// OPERATOR OVERLOADING ///
 
     // vector to vector
     @:op(-A) public static function    neg(v:Float2          ): Float2 { return new Float2(-v.x, -v.y); }
@@ -90,6 +89,16 @@ abstract Float2(Float2Class) from Float2Class to Float2Class {
         return this.x == other.x && this.y == other.y;
     }
 
+    /**Hashcode for dictionaries and sets**/
+    public function getHashCode(): Int {
+        // Convert floats to their integer bit representations
+        var xBits = haxe.io.FPHelper.floatToI32(this.x);
+        var yBits = haxe.io.FPHelper.floatToI32(this.y);
+        
+        // Combine the hash codes
+        return xBits ^ (yBits << 2);
+    }
+    
     /** Returns the vector as an array [x, y] **/
     public inline function toArray():Array<Float> {
         return [this.x, this.y];
@@ -126,7 +135,7 @@ abstract Float2(Float2Class) from Float2Class to Float2Class {
     public static inline function normalize(v: Float2): Float2
     {
         var length: Float = length(v);
-        if (length > Maths.Epsilon) {
+        if (length > Maths.EPSILON) {
             return v / length;
         }
         return Zero;
@@ -183,7 +192,7 @@ abstract Float2(Float2Class) from Float2Class to Float2Class {
     public static inline function project(a: Float2, b: Float2): Float2
     {
         var denominator = dot(b, b);
-        if (denominator <= Maths.Epsilon)
+        if (denominator <= Maths.EPSILON)
             return Float2.Zero;
         return b * (dot(a, b) / denominator);
     }
@@ -266,7 +275,7 @@ abstract Float2(Float2Class) from Float2Class to Float2Class {
     {
         var toVector: Float2 = target - current;
         var distance: Float = length(toVector);
-        if (distance <= maxDistanceDelta || distance < Maths.Epsilon)
+        if (distance <= maxDistanceDelta || distance < Maths.EPSILON)
             return target;
         return current + toVector / distance * maxDistanceDelta;
     }

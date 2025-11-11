@@ -52,19 +52,18 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
         return value;
     }
 
+    /// CONSTRUCTORS ///
     public inline function new(x:Float, y:Float, z:Float) {
         this = new Float3Class(x, y, z);
     }
+    // @:op(a()) inline function callNoArgs(): Float3 {
+    //     return new Float3(0, 0, 0);
+    // }
+    // @:op(a()) inline function callOneArg(scalar: Float): Float3 {
+    //     return new Float3(scalar, scalar, scalar);
+    // }
 
-    // multiple constructors
-    @:op(a()) inline function callNoArgs(): Float3 {
-        return new Float3(0, 0, 0);
-    }
-
-    // multiple constructors
-    @:op(a()) inline function callOneArg(scalar: Float): Float3 {
-        return new Float3(scalar, scalar, scalar);
-    }
+    /// OPERATOR OVERLOADING ///
 
     // vector to vector
     @:op(-A) public static function    neg(v:Float3          ): Float3 { return new Float3(-v.x, -v.y, -v.z); }
@@ -93,6 +92,17 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
     @:op(A != B) public static inline function neq(left:Float3, right:Float3):Bool { return !left.equals(right); }
     public inline function equals(other: Float3): Bool {
         return this.x == other.x && this.y == other.y && this.z == other.z;
+    }
+
+    /**Hashcode for dictionaries and sets**/
+    public function getHashCode(): Int {
+        // Convert floats to their integer bit representations
+        var xBits = haxe.io.FPHelper.floatToI32(this.x);
+        var yBits = haxe.io.FPHelper.floatToI32(this.y);
+        var zBits = haxe.io.FPHelper.floatToI32(this.z);
+        
+        // Combine the hash codes
+        return xBits ^ (yBits << 2) ^ (zBits >> 2);
     }
 
     /** Returns the vector as an array [x, y] **/
@@ -132,7 +142,7 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
     public static inline function normalize(v: Float3): Float3
     {
         var length: Float = length(v);
-        if (length > Maths.Epsilon) {
+        if (length > Maths.EPSILON) {
             return v / length;
         }
         return Zero;
@@ -212,7 +222,7 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
     public static inline function project(a: Float3, b: Float3): Float3
     {
         var denominator = dot(b, b);
-        if (denominator <= Maths.Epsilon)
+        if (denominator <= Maths.EPSILON)
             return Float3.Zero;
         return b * (dot(a, b) / denominator);
     }
@@ -298,7 +308,7 @@ abstract Float3(Float3Class) from Float3Class to Float3Class {
     {
         var toVector: Float3 = target - current;
         var distance: Float = length(toVector);
-        if (distance <= maxDistanceDelta || distance < Maths.Epsilon)
+        if (distance <= maxDistanceDelta || distance < Maths.EPSILON)
             return target;
         return current + toVector / distance * maxDistanceDelta;
     }
